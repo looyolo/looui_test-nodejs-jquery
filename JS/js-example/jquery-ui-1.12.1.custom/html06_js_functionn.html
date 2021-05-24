@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <input type="button" value="登录" onclick="testConfirm()">-->
+    <input type="button" value="登录" onclick="testPrompt()">
+
+</body>
+</html>
+<script>
+    function testConfirm() {
+        var answer = window.confirm("首付退出");
+        if (answer) {
+            window.alert("88");
+        } else {
+            window.alert(":-)")
+        }
+    }
+    function testPrompt() {
+        var answer = window.prompt("请输入密码：", "1223456");
+        if (answer) {
+            alert(answer);
+        } else {
+            alert("密码不能为空！");
+        }
+    }
+</script>

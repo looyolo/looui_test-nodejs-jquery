@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> comic_and_animation </title>
+    <style type="text/css">
+        #div {
+            background: url(images/quanhuang2.png) no-repeat;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+  <div id="div" style="width: 600px;height: 130px;">
+
+  </div>
+</body>
+</html>
+<script>
+    var index = 0, width=100;
+    var div = document.getElementById('div');
+    function setBg() {
+        index++;
+        if(index >= 10) {
+            index=0;
+        }
+        var left = 0 - index * width;
+        div.style.backgroundPosition = left + 'px';
+    }
+    window.setInterval(setBg, 150);
+</script>

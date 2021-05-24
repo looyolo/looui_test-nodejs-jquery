@@ -1,0 +1,72 @@
+<!--参考网站，查看网页源代码-->
+<!--https://act.wegame.com.cn/wegame/wegame20210423/index.html?ADTAG=act.outer.baidu.sem#/mystery-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Tencent_Game_Choice </title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 28px;
+            font-weight: bold;
+        }
+        .main{
+            width: 450px;
+            margin-left:auto;
+            margin-right: auto;
+            text-align: center;
+            background: #1c85b4;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main" >
+        <img src="https://theme.cqxukong.com/theme/plugin/game/images/big/3.jpg">
+    </div>
+    <div class="main">
+        <form action="" method="get" name="myform">
+            请选择游戏类别
+            <select id="gameType" onchange="changeGame()" style="width:120px">
+                <option>--游戏分类--</option>
+            </select><br/>
+            请选择游戏名称
+            <select id="gameList" style="width:120px">
+                <option>--游戏名称--</option>
+            </select><br/>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    var game = new Array();  // 定义一个数组
+    game['纸牌游戏'] = ['斗地主', '炸金花', '拖拉机', '三打哈'];
+    game['棋类游戏'] = ['五子棋', '飞行棋', '中国象棋', '国际象棋'];
+    game['其他游戏'] = ['斗罗大陆', '王者荣耀', '万古神帝', '大话西游'];
+    function changeGame() {
+        // alert('调用一下 changeGame');
+        var gameType = document.getElementById('gameType').value;
+        var gameList = document.getElementById('gameList');
+        // 每次调用 changeGame 再次给 gameList 添加选项之前，都要"清空一次" gameList 缓存数据
+        gameList.options.length = 1;
+        for (var i in game) {
+            if (i == gameType) {
+                for (var j in game[i]) {
+                    gameList.add(new Option(game[i][j], game[i][j]), null);
+                }
+            }
+        }
+    }
+    function allGame() {
+        // alert('调用一下 allGame');
+        var gameType = document.getElementById('gameType');
+        for (var i in game) {
+            gameType.add(new Option(i, i), null);
+        }
+    }
+    window.onload = allGame();
+    window.onload = changeGame;
+</script>

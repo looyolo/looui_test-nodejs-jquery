@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> jquery-ui-1.12.1.custom_resizable </title>
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.css"/>
+    <!--    引入这 2 个 js 库的先后持次序，不可以更改 -->
+    <script src="../jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="../jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <style type="text/css">
+        #resizable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background: #1c85b4;
+        }
+        #resizable h3 {
+            text-align: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!--    <input type="text" id="date"/>-->
+    <div id="resizable" class="ui-widget-content">
+        <h3 class="ui-widget-header">动画</h3>
+    </div>
+</body>
+</html>
+<script>
+    // $('#date').datepicker();
+    $(function() {
+        $('#resizable').resizable(
+            // {  // NOTE: This is  a json
+            //     maxWidth: 300,
+            //     maxHeight: 300,
+            //     minWidth: 150,
+            //     minHeight: 150
+            // }
+            {
+                animate: true
+            }
+        );
+    })
+</script>

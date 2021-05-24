@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>(DOM 对 HTML 元素的访问操作-2) DOM 访问表单控件的常用属性和方法</title>
+</head>
+<body>
+    <img src="../Section04-Web前端开发基础-深入了解BOM和DOM/images/2td.png" width="auto" height="auto"/>
+    <br/>
+    <form id="myForm" value="myForm" action="https://www.sogou.com/" method="get" target="_blank">
+        <input name="username" type="text" value="your account" />
+        <br/>
+        <input name="password" type="text" value="your password"/>
+        <br/>
+        <input name="telephone" type="text" value="please input your telephone number!">
+        <br/>
+        <select name="city">
+            <option value="shanghai">上海</option>
+            <option value="nanjing" selected="selected">南京</option>
+        </select>
+        <br/>
+        <input type="button" value="获取表单内第一个控件"
+               onclick="alert(document.getElementById('myForm').firstElementChild.getAttribute('value'));"/>
+        <br/>
+        <input type="button" value="获取表单内第二个控件"
+               onclick="alert(document.getElementById('myForm').elements[1].value);"/>
+        <br/>
+        <input type="button" value="获取表单内第三个控件"
+               onclick="alert(document.getElementById('myForm').elements['telephone'].value);"/>
+        <br/>
+        <input type="button" value="获取表单内第四个控件"
+               onclick="alert(document.getElementById('myForm').city.value);"/>
+        <br/>
+        <input type="button" value="操作表单" onclick="operateForm()"/>
+        <br/>
+    </form>
+</body>
+</html>
+<script>
+    function operateForm() {
+        var forms = document.forms;
+        for (var form of forms) {
+            if (form != null) {
+                alert("action = " + form.action);
+                alert("length = " + form.length);
+                alert("method = " + form.method);
+                alert("target = " + form.target);
+                form.submit();
+                form.reset();
+            }
+        }
+    }
+</script>
